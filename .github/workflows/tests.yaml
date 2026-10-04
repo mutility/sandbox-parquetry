@@ -39,3 +39,4 @@ jobs:
     with:
       go-version: ${{ matrix.go }}
       pr-comment: 'edit'
+      pr-comment-content: 'link'
