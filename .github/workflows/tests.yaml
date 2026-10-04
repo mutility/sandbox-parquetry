@@ -18,7 +18,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        go: [ 'stable' ]
+        go: [ 'stable', 'oldstable' ]
     uses: mutility/ci/.github/workflows/go-test.yaml@main
     with:
       show-coverage: file
@@ -29,7 +29,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        go: [ 'stable' ]
+        go: [ 'stable', 'oldstable' ]
     permissions:
       contents: write
       pull-requests: write
@@ -38,4 +38,5 @@ jobs:
     uses: mutility/ci/.github/workflows/go-test-publish.yaml@main
     with:
       go-version: ${{ matrix.go }}
-      pr-comment: 'replace'
+      pr-comment: 'edit'
+      pr-comment-content: 'link'
