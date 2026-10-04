@@ -15,21 +15,13 @@ concurrency:
 
 jobs:
   test:
-    strategy:
-      fail-fast: false
-      matrix:
-        go: [ 'stable' ]
     uses: mutility/ci/.github/workflows/go-test.yaml@main
     with:
       show-coverage: file
-      go-version: ${{ matrix.go }}
+      go-version: 'stable'
       golangci-lint-config: .github/golangci.yml
 
   publish:
-    strategy:
-      fail-fast: false
-      matrix:
-        go: [ 'stable' ]
     permissions:
       contents: write
       pull-requests: write
@@ -37,5 +29,5 @@ jobs:
     if: always() && (needs.test.result == 'success')
     uses: mutility/ci/.github/workflows/go-test-publish.yaml@main
     with:
-      go-version: ${{ matrix.go }}
+      go-version: 'stable'
       pr-comment: 'replace'
