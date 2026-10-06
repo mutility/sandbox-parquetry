@@ -38,4 +38,5 @@ jobs:
     uses: mutility/ci/.github/workflows/go-test-publish.yaml@main
     with:
       go-version: ${{ matrix.go }}
-      pr-comment: 'replace'
+      pr-comment: 'outdate'
+      pr-comment-content: 'link'
